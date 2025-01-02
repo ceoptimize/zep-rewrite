@@ -11,7 +11,7 @@ class UserDB(Base):
     email = Column(String)
     first_name = Column(String)
     last_name = Column(String)
-    metadata = Column(JSON)
+    meta_data = Column(JSON)  # Changed from metadata to meta_data
     created_at = Column(DateTime, default=datetime.utcnow)
 
 class SessionDB(Base):
@@ -19,7 +19,7 @@ class SessionDB(Base):
     
     session_id = Column(String, primary_key=True)
     user_id = Column(String, ForeignKey("users.user_id"))
-    metadata = Column(JSON)
+    meta_data = Column(JSON)  # Changed from metadata to meta_data
     created_at = Column(DateTime, default=datetime.utcnow)
 
 class MessageDB(Base):
@@ -30,5 +30,5 @@ class MessageDB(Base):
     role_type = Column(String)
     content = Column(String)
     role = Column(String)
-    metadata = Column(JSON)
+    meta_data = Column(JSON)  # Changed from metadata to meta_data
     created_at = Column(DateTime, default=datetime.utcnow)
