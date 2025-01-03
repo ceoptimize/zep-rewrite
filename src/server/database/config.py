@@ -11,7 +11,7 @@ if DATABASE_URL and not DATABASE_URL.startswith("postgresql+asyncpg://"):
     # Convert the URL to use asyncpg if it doesn't already
     DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+asyncpg://")
 
-engine = create_async_engine(DATABASE_URL)
+engine = create_async_engine(DATABASE_URL, echo=True)
 AsyncSessionLocal = sessionmaker(engine, class_=AsyncSession)
 
 async def get_db():
